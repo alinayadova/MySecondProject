@@ -9,19 +9,18 @@ import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
-    WebDriver wd;
+    public WebDriver wd;
 
     @BeforeClass
-    public void setUp(){
+    public void setUp() throws InterruptedException {
         wd = new ChromeDriver();
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wd.manage().window().maximize();
 
         //open Site
         wd.navigate().to("https://trello.com/");
+        login("mickeymouse.tester1@gmail.com", "Mm123456789");
     }
-
-
 
     public void logout() {
         clickOnAvatar();
@@ -67,71 +66,6 @@ public class TestBase {
         return wd.findElements(locator).size()>0;
     }
 
-    public void boardCreation(){
-        clickOnPlusButton();
-        selectCreateBoard();
-        fillBoardForm();
-        confirmBoardCreation();
-        returnOnHomePage();
-    }
-
-    public void returnOnHomePage() {
-        click(By.cssSelector("[data-test-id='header-home-button']"));
-    }
-
-    public void confirmBoardCreation() {
-        click(By.cssSelector("[data-test-id='create-board-submit-button']"));
-    }
-
-    public void fillBoardForm() {
-        type(By.cssSelector("[data-test-id='create-board-title-input']"), "HelloWorld");
-    }
-
-    public void selectCreateBoard() {
-        click(By.cssSelector("[title='green']"));
-    }
-
-    public void clickOnPlusButton() {
-        click(By.cssSelector("[data-test-id='header-create-menu-button']"));
-        click(By.cssSelector("[data-test-id='header-create-board-button']"));
-    }
-
-    public void deleteBoard(){
-        clickOnOpenBoardsButton();
-        clickOnClosedBoardsButton();
-        clickOnDeleteButton();
-    }
-
-    public void clickOnDeleteButton() {
-        click(By.cssSelector("[class='nch-icon _2_Q6rrYCFblD3M _3Dk1GPoKnJxuep vmfY4Z5HOr-J1T']"));
-    }
-
-    public void clickOnClosedBoardsButton() {
-        click(By.cssSelector("[data-test-id='header-boards-menu-open-closed']"));
-    }
-
-    public void clickOnOpenBoardsButton() {
-        click(By.cssSelector("[data-test-id='header-boards-menu-button']"));
-    }
-
-    public void closeBoard(){
-        clickOnMenuButton();
-        clickOnMoreButton();
-        clickOnCloseButton();
-    }
-
-    public void clickOnCloseButton() {
-        click(By.cssSelector("[class='board-menu-navigation-item-link js-close-board']"));
-    }
-
-    public void clickOnMoreButton() {
-        click(By.cssSelector("[class='board-menu-navigation-item-link js-open-more']"));
-    }
-
-    public void clickOnMenuButton() {
-        click(By.cssSelector("[class='board-header-btn mod-show-menu js-show-sidebar']"));
-    }
-
     public boolean isBoardCreated(){
         return isElementAdded(By.xpath("//div[@title='HelloWorld']"));
     }
@@ -142,7 +76,7 @@ public class TestBase {
 
 
 
-    @AfterClass(enabled = true)
+    @AfterClass(enabled = false)
     public void tearDown(){
         wd.quit();
     }
