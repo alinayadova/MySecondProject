@@ -16,33 +16,33 @@ public class BoardClosingAndDeletingTest extends TestBase {
     }
 
     public void confirmDeleteButton() {
-        click(By.cssSelector(".js-confirm"));
+        app.click(By.cssSelector(".js-confirm"));
     }
 
     public void deleteButton() {
-        click(By.cssSelector(".js-delete"));
+        app.click(By.cssSelector(".js-delete"));
     }
 
     public void confirmCloseButton() {
        // click(By.xpath("//input[@class='js-confirm full negate']"));
-        click(By.cssSelector(".js-confirm"));
+        app.click(By.cssSelector(".js-confirm"));
     }
 
     public void clickOnCloseButton() {
-        click(By.cssSelector(".js-close-board"));
+        app.click(By.cssSelector(".js-close-board"));
     }
 
     public void clickOnMoreButton() {
-        click(By.cssSelector("a.js-open-more"));
+        app.click(By.cssSelector("a.js-open-more"));
     }
 
     public void clickOnBoard(String boardName) {
-        click(By.cssSelector("[title='" + boardName + "']"));
+        app.click(By.cssSelector("[title='" + boardName + "']"));
         //click(By.xpath("//a[@title='" + boardName + "']/../.."));
     }
 
     public void clickOnOpenBoardsButton() {
-        click(By.cssSelector("[data-test-id='header-boards-menu-button']"));
+        app.click(By.cssSelector("[data-test-id='header-boards-menu-button']"));
     }
 
 }
