@@ -10,14 +10,27 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
     WebDriver wd;
+    SessionHelper session;
+    BoardHelper board;
+
 
     public void init() {
         wd = new ChromeDriver();
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wd.manage().window().maximize();
-
         //open Site
         wd.navigate().to("https://trello.com/");
+        session = new SessionHelper(wd);
+        board = new BoardHelper(wd);
+
+    }
+
+    public SessionHelper getSession() {
+        return session;
+    }
+
+    public BoardHelper getBoard() {
+        return board;
     }
 
     public void logout() {
