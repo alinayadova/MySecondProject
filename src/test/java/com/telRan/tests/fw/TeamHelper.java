@@ -20,7 +20,7 @@ public class TeamHelper extends HelperBase{
         //typeTeam
         click(By.cssSelector("[data-test-id='header-create-team-type-input']"));
         click (By.cssSelector("[data-test-id^=header-create-team-type] li"));
-        //click(By.cssSelector("[data-test-id^='" + typeTeam + "'] li"));
+        //???   click(By.cssSelector("[data-test-id^='" + typeTeam + "'] li"));?
         type(By.cssSelector("._15aIJYNKhrO4vB"), descriptionTeam);
 
     }
