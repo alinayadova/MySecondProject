@@ -8,7 +8,7 @@ public class TeamCreationTest extends TestBase {
     @Test
     public void createTeam(){
         app.team().clickOnCreateTeamButton();
-        app.team().fillTeamForm("WWW-Leningrad", "Marketing", "It's the best team!");
+        app.team().fillTeamForm("WWW-Leningrad", "Operations", "It's the best team!");
         app.team().confirmCreationTeam();
 
 
