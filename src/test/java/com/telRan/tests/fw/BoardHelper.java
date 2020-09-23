@@ -1,8 +1,11 @@
 package com.telRan.tests.fw;
 
+import com.telRan.tests.model.Board;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+
+import java.util.concurrent.TimeUnit;
 
 public class BoardHelper extends HelperBase {
 
@@ -19,9 +22,9 @@ public class BoardHelper extends HelperBase {
         click(By.cssSelector("[data-test-id='create-board-submit-button']"));
     }
 
-    public void fillBoardForm(String boardName, String teamVisible) {
+    public void fillBoardForm(Board board) {
         //title
-        type(By.xpath("//input[@data-test-id='create-board-title-input']"), boardName);
+        type(By.xpath("//input[@data-test-id='create-board-title-input']"), board.getBoardName());
         //team
         click(By.cssSelector(".W6rMLOx8U0MrPx"));
         //to check!
@@ -30,10 +33,10 @@ public class BoardHelper extends HelperBase {
         }
         //public/private ("" + var + "")
         click(By.xpath("//*[@class='_1Lkx3EjS3wCrs7']"));
-        click(By.xpath("//*[@name='" + teamVisible + "']/../.."));
+        click(By.xpath("//*[@name='" + board.getTeamVisible() + "']/../.."));
 
         //confirmPublic
-        if (teamVisible.equals("public")) {
+        if (board.getTeamVisible().equals("public")) {
             click(By.cssSelector(".X6LMWvod566P68 button"));
         }
 
@@ -43,10 +46,11 @@ public class BoardHelper extends HelperBase {
         click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
     }
 
-    public void renameBoard(){
-        click(By.cssSelector(".mod-board-name"));
-        wd.findElement(By.cssSelector(".board-name-input.js-board-name-input")).clear();
-        wd.findElement(By.cssSelector(".board-name-input.js-board-name-input")).sendKeys("test" + Keys.ENTER);
+    public void renameBoard(Board board){
+        click(By.cssSelector("js-rename-board"));
+        wd.findElement(By.cssSelector(".js-board-name-input")).clear();
+        wd.findElement(By.cssSelector(".js-board-name-input"))
+                .sendKeys(board.getBoardName() + TimeUnit.MILLISECONDS + Keys.ENTER);
     }
 
     public void confirmDeleteButton() {

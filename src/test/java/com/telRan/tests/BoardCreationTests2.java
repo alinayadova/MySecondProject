@@ -1,6 +1,6 @@
 package com.telRan.tests;
 
-import com.telRan.tests.TestBase;
+import com.telRan.tests.model.Board;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,9 +12,11 @@ public class BoardCreationTests2 extends TestBase {
         int before = app.board().getBoardsCount();
         app.header().clickOnPlusButton();
         app.header().selectCreateBoard();
-        app.board().fillBoardForm("HelloWorld", "public");
+        app.board().fillBoardForm(new Board()
+                .withBoardName("HH")
+                .withTeamVisible("public"));
         app.board().confirmBoardCreation();
-        app.header().returnOnHomePage();
+        app.header().returnOnHomePageFromBoard();
         int after = app.board().getBoardsCount();
         System.out.println("was: " + before + " now: " + after);
         Assert.assertEquals(after, before+1);
@@ -25,10 +27,13 @@ public class BoardCreationTests2 extends TestBase {
         int before = app.board().getBoardsCount();
         app.header().clickOnPlusButton();
         app.header().selectCreateBoard();
-        app.board().fillBoardForm("mmm", "public");
+        app.board().fillBoardForm(new Board()
+                .withBoardName("mmm")
+                .withTeamVisible("private"));
         app.board().confirmBoardCreation();
-        app.header().returnOnHomePage();
+        app.header().returnOnHomePageFromBoard();
         int after = app.board().getBoardsCount();
+
         System.out.println("was: " + before + " now: " + after);
         Assert.assertEquals(after, before+1);
     }
