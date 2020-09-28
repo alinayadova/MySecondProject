@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class teamModificationTest extends TestBase {
     @Test
     public void modifyTeamTest(){
-        app.team().clickOnTeam("hop");
+        app.team().clickOnTeam(new Team().withTeamName("mmm"));
         app.team().clickOnSettingsTeam();
         //edit team profile
         app.team().clickOnEditTeamProfile();
@@ -21,7 +21,7 @@ public class teamModificationTest extends TestBase {
     @Test
     public void deleteTeamTest(){
         //click on team
-        app.team().clickOnTeam("mmm ");
+        app.team().clickOnTeam(new Team().withTeamName("London"));
         //click on settings
         app.team().clickOnSettingsTeam();
         //click on delete this team

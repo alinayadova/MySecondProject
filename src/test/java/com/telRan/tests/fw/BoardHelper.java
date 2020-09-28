@@ -14,8 +14,12 @@ public class BoardHelper extends HelperBase {
     }
 
     public int getBoardsCount() {
-        int res = wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li")).size()-1;
-        return res;
+        if(!isElementPresent(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"))){
+           waitForElement(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"), 20);
+        return wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li")).size()-1;
+        }
+
+        return wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li")).size()-1;
     }
 
     public void confirmBoardCreation() {
@@ -24,7 +28,8 @@ public class BoardHelper extends HelperBase {
 
     public void fillBoardForm(Board board) {
         //title
-        type(By.xpath("//input[@data-test-id='create-board-title-input']"), board.getBoardName());
+
+        waitForElementAndType(By.xpath("//input[@data-test-id='create-board-title-input']"), 30,board.getBoardName());
         //team
         click(By.cssSelector(".W6rMLOx8U0MrPx"));
         //to check!
@@ -48,9 +53,9 @@ public class BoardHelper extends HelperBase {
 
     public void renameBoard(Board board){
         click(By.cssSelector("js-rename-board"));
-        wd.findElement(By.cssSelector(".js-board-name-input")).clear();
+       // wd.findElement(By.cssSelector(".js-board-name-input")).clear();
         wd.findElement(By.cssSelector(".js-board-name-input"))
-                .sendKeys(board.getBoardName() + TimeUnit.MILLISECONDS + Keys.ENTER);
+                .sendKeys(board.getBoardName() + System.currentTimeMillis() + Keys.ENTER);
     }
 
     public void confirmDeleteButton() {

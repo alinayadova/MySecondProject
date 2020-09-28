@@ -39,8 +39,8 @@ public class TeamHelper extends HelperBase{
         return wd.findElements(By.cssSelector("[data-test-id='home-team-tab-name']")).size();
     }
 
-    public void clickOnTeam(String teamName){
-        click(By.xpath("//span[@class='_3qwe2tMMFonNvf' and contains(text(), '" + teamName + "')]"));
+    public void clickOnTeam(Team team){
+        click(By.xpath("//span[@class='_3qwe2tMMFonNvf' and contains(text(), '" + team.getTeamName() + "')]"));
      }
 
     public void clickOnSettingsTeam() {

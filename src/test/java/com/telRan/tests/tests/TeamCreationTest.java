@@ -3,6 +3,7 @@ package com.telRan.tests.tests;
 import com.telRan.tests.TestBase;
 import com.telRan.tests.model.Team;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 public class TeamCreationTest extends TestBase {
@@ -41,7 +42,11 @@ public class TeamCreationTest extends TestBase {
         System.out.println("was: " + before + " now: " + after);
         Assert.assertEquals(after, before+1);
 
+    }
 
+    @AfterClass
+    public void postActions(){
+       app.leftNav().returnToBoardsPage();
     }
 
 

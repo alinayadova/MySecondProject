@@ -8,10 +8,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class HelperBase {
     WebDriver wd;
 
-    public HelperBase(WebDriver wd) {
-
+    public HelperBase(WebDriver wd){
         this.wd = wd;
     }
+
     public void type(By locator, String text) {
         click(locator);
         wd.findElement(locator).clear();
@@ -27,8 +27,19 @@ public class HelperBase {
     }
 
     public void waitForElement(By locator, int timeOut){
-        new WebDriverWait(wd, timeOut).until(ExpectedConditions.presenceOfElementLocated(locator));
+        new WebDriverWait(wd, timeOut)
+                .until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
+    public void waitForElementAndClick(By locator, int timeOut){
+        new WebDriverWait(wd, timeOut)
+                .until(ExpectedConditions.presenceOfElementLocated(locator)).click();
+    }
+    public void waitForElementAndType(By locator, int timeOut, String text){
+        new WebDriverWait(wd, timeOut)
+                .until(ExpectedConditions.presenceOfElementLocated(locator)).click();
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(text);
+    }
 
 }
