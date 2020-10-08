@@ -46,5 +46,8 @@ public class HeaderHelper extends HelperBase{
         return isElementPresent(By.xpath("//button[@data-test-id='header-member-menu-button']")) ;
     }
 
+    public void openProfile() {
+        click(By.cssSelector("[data-test-id='header-member-menu-profile']"));
+    }
 
 }

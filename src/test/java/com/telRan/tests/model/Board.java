@@ -2,15 +2,15 @@ package com.telRan.tests.model;
 
 public class Board {
     private String boardName;
-    private String teamVisible;
+    private String boardVisible;
 
     public Board withBoardName(String boardName) {
         this.boardName = boardName;
         return this;
     }
 
-    public Board withTeamVisible(String teamVisible) {
-        this.teamVisible = teamVisible;
+    public Board withBoardVisible(String boardVisible) {
+        this.boardVisible = boardVisible;
         return this;
     }
 
@@ -18,7 +18,15 @@ public class Board {
         return boardName;
     }
 
-    public String getTeamVisible() {
-        return teamVisible;
+    public String getBoardVisible() {
+        return boardVisible;
+    }
+
+    @Override
+    public String toString() {
+        return "Board{" +
+                "boardName='" + boardName + '\'' +
+                ", boardVisible='" + boardVisible + '\'' +
+                '}';
     }
 }

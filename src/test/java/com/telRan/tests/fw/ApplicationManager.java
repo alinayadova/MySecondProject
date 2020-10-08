@@ -15,10 +15,11 @@ public class ApplicationManager {
     HeaderHelper header;
     TeamHelper team;
     LeftNavigationMenuPage leftNav;
+    ProfileHelper profile;
 
     private String browser;
 
-    public ApplicationManager(String browser) {
+    public ApplicationManager(String property, String browser) {
         this.browser = browser;
     }
 
@@ -29,7 +30,7 @@ public class ApplicationManager {
             wd = new FirefoxDriver();
         }
 
-        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wd.manage().window().maximize();
         //open Site
         wd.navigate().to("https://trello.com/");
@@ -39,6 +40,7 @@ public class ApplicationManager {
         header = new HeaderHelper(wd);
         team = new TeamHelper(wd);
         leftNav = new LeftNavigationMenuPage(wd);
+        profile = new ProfileHelper(wd);
 
     }
 
@@ -52,6 +54,10 @@ public class ApplicationManager {
 
     public HeaderHelper header() {
         return header;
+    }
+
+    public ProfileHelper profile() {
+        return profile;
     }
 
     public TeamHelper team(){

@@ -4,6 +4,9 @@ import com.telRan.tests.model.Board;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,12 +17,10 @@ public class BoardHelper extends HelperBase {
     }
 
     public int getBoardsCount() {
-        if(!isElementPresent(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"))){
-           waitForElement(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"), 20);
-        return wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li")).size()-1;
+        if (!isElementPresent(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"))) {
+            waitForElement(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"), 30);
         }
-
-        return wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li")).size()-1;
+        return wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li")).size() - 1;
     }
 
     public void confirmBoardCreation() {
@@ -29,7 +30,8 @@ public class BoardHelper extends HelperBase {
     public void fillBoardForm(Board board) {
         //title
 
-        waitForElementAndType(By.xpath("//input[@data-test-id='create-board-title-input']"), 30,board.getBoardName());
+        waitForElementAndType(By.xpath("//input[@data-test-id='create-board-title-input']"),
+                30, board.getBoardName());
         //team
         click(By.cssSelector(".W6rMLOx8U0MrPx"));
         //to check!
@@ -38,10 +40,10 @@ public class BoardHelper extends HelperBase {
         }
         //public/private ("" + var + "")
         click(By.xpath("//*[@class='_1Lkx3EjS3wCrs7']"));
-        click(By.xpath("//*[@name='" + board.getTeamVisible() + "']/../.."));
+        click(By.xpath("//*[@name='" + board.getBoardVisible() + "']/../.."));
 
         //confirmPublic
-        if (board.getTeamVisible().equals("public")) {
+        if (board.getBoardVisible().equals("public")) {
             click(By.cssSelector(".X6LMWvod566P68 button"));
         }
 
@@ -49,11 +51,13 @@ public class BoardHelper extends HelperBase {
 
     public void clickOnTheFirstBoard() {
         click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
+
+        // wd.findElement().isDisplayed();
     }
 
-    public void renameBoard(Board board){
+    public void renameBoard(Board board) {
         click(By.cssSelector("js-rename-board"));
-       // wd.findElement(By.cssSelector(".js-board-name-input")).clear();
+        // wd.findElement(By.cssSelector(".js-board-name-input")).clear();
         wd.findElement(By.cssSelector(".js-board-name-input"))
                 .sendKeys(board.getBoardName() + System.currentTimeMillis() + Keys.ENTER);
     }
@@ -86,6 +90,14 @@ public class BoardHelper extends HelperBase {
 
     public void clickOnOpenBoardsButton() {
         click(By.cssSelector("[data-test-id='header-boards-menu-button']"));
+    }
+
+
+    public boolean isOnBoardsPage() {
+        String personalBoards = "//*[@class='icon-lg icon-member']/../../..//li";
+        new WebDriverWait(wd, 20)
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(personalBoards)));
+        return isElementPresent(By.xpath(personalBoards));
     }
 
 }

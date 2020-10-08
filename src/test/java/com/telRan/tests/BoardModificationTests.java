@@ -18,7 +18,7 @@ public class BoardModificationTests extends TestBase {
     @Test
     public void closeDeleteBoard() {
         app.board().clickOnOpenBoardsButton();
-        app.board().clickOnBoard("mmm");
+        app.board().clickOnBoard("HH");
         app.board().clickOnMoreButton();
         app.board().clickOnCloseButton();
         app.board().confirmCloseButton();

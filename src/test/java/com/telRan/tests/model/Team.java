@@ -31,4 +31,13 @@ public class Team {
     public String getDescriptionTeam() {
         return descriptionTeam;
     }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "teamName='" + teamName + '\'' +
+                ", typeTeam='" + typeTeam + '\'' +
+                ", descriptionTeam='" + descriptionTeam + '\'' +
+                '}';
+    }
 }
