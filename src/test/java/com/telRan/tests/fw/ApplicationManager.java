@@ -1,6 +1,5 @@
 package com.telRan.tests.fw;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -9,6 +8,7 @@ import org.openqa.selenium.remote.BrowserType;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
+
     WebDriver wd;
     SessionHelper session;
     BoardHelper board;
@@ -16,6 +16,7 @@ public class ApplicationManager {
     TeamHelper team;
     LeftNavigationMenuPage leftNav;
     ProfileHelper profile;
+    CardHelper card;
 
     private String browser;
 
@@ -41,7 +42,12 @@ public class ApplicationManager {
         team = new TeamHelper(wd);
         leftNav = new LeftNavigationMenuPage(wd);
         profile = new ProfileHelper(wd);
+        card = new CardHelper(wd);
 
+    }
+
+    public CardHelper card() {
+        return card;
     }
 
     public SessionHelper session() {

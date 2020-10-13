@@ -32,10 +32,9 @@ public class ProfileHelper extends HelperBase{
 
     public void changeAvatar() {
         WebElement avatar = wd.findElement(By.cssSelector("[data-test-selector='profile-avatar']"));
-        new Actions(wd).moveToElement(avatar)
-                .click().click(wd.findElement(By.xpath("//*[@id='uid16']/span[1]"))).perform();
+        new Actions(wd).moveToElement(avatar).click().click(wd.findElement(By.xpath("//*[@class='sc-hZSUBg dmzIAx']/span[1]"))).perform();
 
 
-               // new Actions(wd).clickAndHold().moveToElement().release();
+               // new Actions(wd).clickAndHold("").moveToElement("").release().perform();
     }
 }

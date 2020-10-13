@@ -9,11 +9,11 @@ import org.testng.annotations.Test;
 public class teamModificationTest extends TestBase {
     @Test
     public void modifyTeamTest(){
-        app.team().clickOnTeam(new Team().withTeamName("mmm"));
+        app.team().clickOnTeam(new Team().withTeamName("Spasibo"));
         app.team().clickOnSettingsTeam();
         //edit team profile
         app.team().clickOnEditTeamProfile();
-        app.team().renameTeam(new Team().withTeamName("HOP"));
+        app.team().renameTeam(new Team().withTeamName("Spa"));
         //save
         app.team().confirmRenameTeamButton();
     }

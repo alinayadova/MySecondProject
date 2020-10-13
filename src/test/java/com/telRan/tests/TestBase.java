@@ -32,7 +32,7 @@ public class TestBase {
 
     @AfterMethod
     public void logTestStop(Method m){
-        logger.info("stop test" + m.getName());
+        logger.info("stop test " + m.getName());
     }
 
     @AfterSuite(enabled = true)

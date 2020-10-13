@@ -1,14 +1,16 @@
 package com.telRan.tests.fw;
 
 import com.telRan.tests.model.Board;
+import com.telRan.tests.model.Card;
+import com.telRan.tests.model.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
+
+
 
 public class BoardHelper extends HelperBase {
 
@@ -46,7 +48,6 @@ public class BoardHelper extends HelperBase {
         if (board.getBoardVisible().equals("public")) {
             click(By.cssSelector(".X6LMWvod566P68 button"));
         }
-
     }
 
     public void clickOnTheFirstBoard() {
@@ -99,5 +100,28 @@ public class BoardHelper extends HelperBase {
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(personalBoards)));
         return isElementPresent(By.xpath(personalBoards));
     }
+
+    public void fillListFormInBoard(List listName) {
+        click(By.cssSelector(".js-add-list"));
+        type(By.cssSelector(".list-name-input"),listName.getListName());
+    }
+
+    public void confirmAddListButton() {
+        click(By.cssSelector(".js-save-edit"));
+    }
+
+    public void fillCardForm(Card cardName) {
+        click(By.cssSelector(".js-open-card-composer"));
+        type(By.cssSelector(".js-card-title"),cardName.getCardName());
+    }
+
+    public void confirmAddCardButton() {
+        click(By.cssSelector(".js-add-card"));
+    }
+
+    public void cancelAddingAnotherCardButton() {
+        click(By.cssSelector(".js-cancel"));
+    }
+
 
 }

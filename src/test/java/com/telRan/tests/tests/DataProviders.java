@@ -12,13 +12,24 @@ import java.util.Iterator;
 import java.util.List;
 
 public class DataProviders {
+
+    @DataProvider
+    public Iterator<Object[]> validListsAndCards(){
+        List<Object[]> list = new ArrayList<>();
+        list.add(new Object[]{"First list", "1 task"});
+        list.add(new Object[]{"Second list", ""});
+        list.add(new Object[]{"Third list", ""});
+
+        return list.iterator();
+    }
+
     @DataProvider
     public Iterator<Object[]> validBoards(){
         List<Object[]> list  = new ArrayList<>();
-        list.add(new Object[]{"1NewBoard", "public"});
-        list.add(new Object[]{"1New-board", "public"});
-        list.add(new Object[]{"1", "public"});
-        list.add(new Object[]{"&^$^%", "public"});
+        list.add(new Object[]{"yyyyy", "public"});
+        list.add(new Object[]{"zzzzz", "public"});
+        //list.add(new Object[]{"1", "public"});
+       // list.add(new Object[]{"&^$^%", "public"});
 
         return list.iterator();
     }
@@ -26,8 +37,8 @@ public class DataProviders {
     @DataProvider
     public Iterator<Object[]>validTeam(){
         List<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"Alina", "marketing", "this is team"});
-        list.add(new Object[]{"Moishe", "education", ""});
+        list.add(new Object[]{"Vodka", "marketing", "this is team"});
+        list.add(new Object[]{"Seledka", "education", ""});
 
         return list.iterator();
     }
