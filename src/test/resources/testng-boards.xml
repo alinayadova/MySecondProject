@@ -3,8 +3,8 @@
 <suite name="RegressionTestsWithoutLogin" verbose="1" >
     <test name="Regression" >
         <classes>
-            <class name="com.telRan.tests.BoardCreationTests2" />
-            <class name="com.telRan.tests.BoardModificationTests" />
+            <class name="com.telRan.tests.tests.BoardCreationTests2" />
+            <class name="com.telRan.tests.tests.BoardModificationTests" />
         </classes>
     </test>
 </suite>

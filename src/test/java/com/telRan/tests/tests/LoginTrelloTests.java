@@ -1,10 +1,11 @@
-package com.telRan.tests;
+package com.telRan.tests.tests;
 
+import com.telRan.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginTrelloTests extends TestBase{
+public class LoginTrelloTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
