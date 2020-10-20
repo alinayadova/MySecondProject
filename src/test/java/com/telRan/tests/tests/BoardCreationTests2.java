@@ -64,7 +64,7 @@ public class BoardCreationTests2 extends TestBase {
         app.header().clickOnPlusButton();
         app.header().selectCreateBoard();
         app.board().fillBoardForm(new Board()
-             //   .withBoardName("zzz")
+                .withBoardName("zzz")
                 .withBoardVisible("public"));
         app.board().confirmBoardCreation();
         app.header().returnOnHomePageFromBoard();

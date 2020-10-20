@@ -25,7 +25,7 @@ public class HeaderHelper extends HelperBase{
         click(By.cssSelector("[data-test-id='header-home-button']"));
     }
     public void returnOnHomePageFromTeam() {
-        waitForElement(By.cssSelector(".tabbed-pane-header-content"), 30);
+        waitForElement(By.cssSelector(".js-add-list"), 30);
         click(By.cssSelector("[data-test-id='header-home-button']"));
     }
 
