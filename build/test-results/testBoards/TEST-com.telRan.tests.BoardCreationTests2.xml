@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telRan.tests.BoardCreationTests2" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-09-29T17:12:35" hostname="LENOVO" time="13.066">
+  <properties/>
+  <testcase name="boardCreationTest" classname="com.telRan.tests.BoardCreationTests2" time="8.9"/>
+  <testcase name="boardCreationTest2" classname="com.telRan.tests.BoardCreationTests2" time="4.134"/>
+  <system-out><![CDATA[was: 15 now: 16
+was: 16 now: 17
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

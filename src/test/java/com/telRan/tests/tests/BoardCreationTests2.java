@@ -1,5 +1,6 @@
-package com.telRan.tests;
+package com.telRan.tests.tests;
 
+import com.telRan.tests.TestBase;
 import com.telRan.tests.model.Board;
 import com.telRan.tests.tests.DataProviders;
 import org.testng.Assert;
@@ -63,7 +64,7 @@ public class BoardCreationTests2 extends TestBase {
         app.header().clickOnPlusButton();
         app.header().selectCreateBoard();
         app.board().fillBoardForm(new Board()
-                .withBoardName("zzz")
+             //   .withBoardName("zzz")
                 .withBoardVisible("public"));
         app.board().confirmBoardCreation();
         app.header().returnOnHomePageFromBoard();

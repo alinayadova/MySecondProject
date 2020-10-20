@@ -1,5 +1,6 @@
-package com.telRan.tests;
+package com.telRan.tests.tests;
 
+import com.telRan.tests.TestBase;
 import com.telRan.tests.model.Board;
 import org.testng.annotations.Test;
 

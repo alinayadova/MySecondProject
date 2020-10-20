@@ -7,7 +7,7 @@ public class UsersProfileModificationTests extends TestBase {
 
 
     @Test
-    public void testChangeAvatarForUser(){
+    public void testChangeAvatarForUser() throws InterruptedException {
         app.header().clickOnAvatar();
         app.header().openProfile();
         app.profile().switchToAttlassianAccWindow();

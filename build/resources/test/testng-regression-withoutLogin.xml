@@ -4,8 +4,8 @@
     <test name="Regression" >
         <classes>
             <class name="com.telRan.tests.tests.TeamCreationTest" />
-            <class name="com.telRan.tests.tests.BoardCreationTests2" />
-            <class name="com.telRan.tests.tests.BoardModificationTests" />
+            <class name="com.telRan.tests.BoardCreationTests2" />
+            <class name="com.telRan.tests.BoardModificationTests" />
 
         </classes>
     </test>
