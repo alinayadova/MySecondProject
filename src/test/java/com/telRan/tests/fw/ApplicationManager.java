@@ -31,7 +31,9 @@ public class ApplicationManager {
             wd = new FirefoxDriver();
         }
 
-        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wd.manage()
+                .timeouts()
+                .implicitlyWait(10, TimeUnit.SECONDS);
         wd.manage().window().maximize();
         //open Site
         wd.navigate().to("https://trello.com/");
