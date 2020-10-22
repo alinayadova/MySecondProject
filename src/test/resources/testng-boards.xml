@@ -3,7 +3,12 @@
 <suite name="RegressionTestsWithoutLogin" verbose="1" >
     <test name="Regression" >
         <classes>
-            <class name="com.telRan.tests.tests.BoardCreationTests2" />
+            <class name="com.telRan.tests.tests.BoardCreationTests2">
+                <methods>
+                    <!--               / <include name=".*enabledTestMethod.*"/>-->
+                    <exclude name=".*FromDataProvider*.*"/>
+                </methods>
+            </class>
             <class name="com.telRan.tests.tests.BoardModificationTests" />
         </classes>
     </test>
